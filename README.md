@@ -8,7 +8,7 @@
   - Google Test v1.14.0
 
 Сборка программы:
-  Для корректной сборки программы необходимо установить библиотеку QT 
+> Для корректной сборки программы необходимо установить библиотеку QT 
   в указанном выше месте или изменить путь до папки в <build_mingw.bat>, а также установить библиотеку Google Test.
   После этого запустить программу, исполняемые файл <WordCloud.exe> и <WordCloudTests.exe> будут в папке `build/`.
 
@@ -41,4 +41,5 @@
   WordCloud.exe ..\text.txt -o square.png -s sQuare
   WordCloud.exe ..\text.txt -o triangle.JPG -s trianglE
   WordCloud.exe ..\text.txt -o heart -s hEARt -W 400 -H 400
+
   WordCloud.exe ..\text.txt -o star.jpg -s stAR -W 800 -H 600
