@@ -36,13 +36,13 @@
   - star       — звезда
 
 Примеры тестов с уже готовым файлом text.txt, запускаемые из папки build:
-  WordCloud.exe ..\text.txt -o spiral.test -s sPIRAL
-  WordCloud.exe ..\text.txt -o circle.what -s CIRCLe
-  WordCloud.exe ..\text.txt -o square.png -s sQuare
-  WordCloud.exe ..\text.txt -o triangle.JPG -s trianglE
-  WordCloud.exe ..\text.txt -o heart -s hEARt -W 400 -H 400
+WordCloud.exe ..\text.txt -o spiral.test -s sPIRAL
+WordCloud.exe ..\text.txt -o circle.what -s CIRCLe
+WordCloud.exe ..\text.txt -o square.png -s sQuare
+WordCloud.exe ..\text.txt -o triangle.JPG -s trianglE
+WordCloud.exe ..\text.txt -o heart -s hEARt -W 400 -H 400
+WordCloud.exe ..\text.txt -o star.jpg -s stAR -W 800 -H 600
 
-  WordCloud.exe ..\text.txt -o star.jpg -s stAR -W 800 -H 600
 
 
 
