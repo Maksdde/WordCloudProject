@@ -21,19 +21,19 @@
   При отсутствии иных вводных, название изображения будет <output.jpg>, размер 600*600 пикселей, форма фигуры — спираль.
 
 Параметры:
-  <input.txt>              — текстовый файл
-  -o, --output <file>      — выходное изображение (jpg)
-  -s, --shape <shape>      — форма облака (по умолчанию spiral)
-  -W, --width <pixels>     — ширина изображения (по умолчанию: 800)
-  -H, --height <pixels>    — высота изображения (по умолчанию: 600)
+  - <input.txt>              — текстовый файл
+  - -o, --output <file>      — выходное изображение (jpg)
+  - -s, --shape <shape>      — форма облака (по умолчанию spiral)
+  - -W, --width <pixels>     — ширина изображения (по умолчанию: 800)
+  - -H, --height <pixels>    — высота изображения (по умолчанию: 600)
 
 Формы:
-  spiral     — спираль
-  circle     — круг
-  square     — квадрат
-  triangle   — треугольник
-  heart      — сердце
-  star       — звезда
+  - spiral     — спираль
+  - circle     — круг
+  - square     — квадрат
+  - triangle   — треугольник
+  - heart      — сердце
+  - star       — звезда
 
 Примеры тестов с уже готовым файлом text.txt, запускаемые из папки build:
   WordCloud.exe ..\text.txt -o spiral.test -s sPIRAL
@@ -43,5 +43,6 @@
   WordCloud.exe ..\text.txt -o heart -s hEARt -W 400 -H 400
 
   WordCloud.exe ..\text.txt -o star.jpg -s stAR -W 800 -H 600
+
 
 
