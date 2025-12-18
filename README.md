@@ -13,8 +13,7 @@
   После этого запустить программу, исполняемые файл <WordCloud.exe> и <WordCloudTests.exe> будут в папке `build/`.
 
 Тестирование:
-> Тесты реализованы через библиотеку Gtest. Для корректной работы необходимо скачать Google Test v1.14.0 и распаковать 
-  в папку `google/` в корне проекта.
+> Тесты реализованы через библиотеку Gtest.
 
 Утилита для командной строки:
 > WordCloud.exe <input.txt>
@@ -42,6 +41,7 @@ WordCloud.exe ..\text.txt -o square.png -s sQuare
 WordCloud.exe ..\text.txt -o triangle.JPG -s trianglE
 WordCloud.exe ..\text.txt -o heart -s hEARt -W 400 -H 400
 WordCloud.exe ..\text.txt -o star.jpg -s stAR -W 800 -H 600
+
 
 
 
