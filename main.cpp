@@ -7,7 +7,7 @@
 #include <QStringList>
 #include "WordCloudGenerator.h"
 
-bool isValidShape(const QString& shape) {  // проверка форм
+bool isValidShape(const QString &shape) {  // проверка форм
     static const QStringList validShapes = {"spiral", "circle", "square", "triangle", "heart", "star"};
    return validShapes.contains(shape.toLower());
 }
@@ -118,4 +118,5 @@ int main(int argc, char *argv[]) {
     }
     
     return 0;
+
 }
