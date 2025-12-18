@@ -13,17 +13,18 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/google/googletest.git
   GIT_TAG v1.14.0
 )
-FetchContent_MakeAvailable(googletest)
 
 add_library(WordCloudLib
     WordCloudGenerator.cpp
     WordCloudGenerator.h
 )
 
-target_link_libraries(WordCloudLib PRIVATE Qt6::Core Qt6::Gui)
+target_link_libraries(WordCloudLib PUBLIC Qt6::Core Qt6::Gui)
 
 add_executable(WordCloud main.cpp)
 target_link_libraries(WordCloud PRIVATE WordCloudLib)
+
+FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 add_executable(WordCloudTests tests/test_wordcloud.cpp)
