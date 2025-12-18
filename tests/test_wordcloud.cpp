@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "WordCloudGenerator.h"
+#include "../WordCloudGenerator.h"
 #include <QImage>
 #include <QPainter>
 #include <QGuiApplication>
