@@ -26,8 +26,6 @@ target_link_libraries(WordCloud PRIVATE WordCloudLib)
 
 FetchContent_MakeAvailable(googletest)
 
-enable_testing()
 add_executable(WordCloudTests tests/test_wordcloud.cpp)
 target_link_libraries(WordCloudTests PRIVATE WordCloudLib gtest_main)
 
-add_test(NAME WordCloudTests COMMAND WordCloudTests)
