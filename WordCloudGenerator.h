@@ -16,9 +16,8 @@ public:
 private:
     std::map<QString, int> freq;
     
-    QString drawing_shape = "spiral";  // форма по умолчанию
+    QString drawing_shape = "spiral";
     
-    // константы для рисования
     static constexpr int MAX_WORDS_SPIRAL = 50;
     static constexpr int MAX_WORDS_CIRCLE = 40;
     static constexpr int MAX_WORDS_SQUARE = 40;
@@ -39,7 +38,7 @@ private:
     
     static const std::vector<QColor> COLORS;
     
-    void drawBasic(QPainter *p, // общиий метод рисования
+    void drawBasic(QPainter *p,
         const QSize &size,
         const std::vector<QPoint>& positions, 
         const QString& fontName = "Arial", 
@@ -47,14 +46,15 @@ private:
         int fontMultiplier = 18
     );
     
-    void drawSpiral(QPainter *p, const QSize &size);  // спираль
-    void drawCircle(QPainter *p, const QSize &size);  // круг
-    void drawSquare(QPainter *p, const QSize &size);  // квадрат
-    void drawTriangle(QPainter *p, const QSize &size);  // треугольник
-    void drawHeart(QPainter *p, const QSize &size);  // сердце
-    void drawStar(QPainter *p, const QSize &size);  // звезда
+    void drawSpiral(QPainter *p, const QSize &size);
+    void drawCircle(QPainter *p, const QSize &size);
+    void drawSquare(QPainter *p, const QSize &size); 
+    void drawTriangle(QPainter *p, const QSize &size);
+    void drawHeart(QPainter *p, const QSize &size);
+    void drawStar(QPainter *p, const QSize &size); 
     
     QColor getRandomColor();
 };
+
 
 #endif
