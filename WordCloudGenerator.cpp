@@ -2,7 +2,6 @@
 #include <QStringList>
 #include <QPainter>
 #include <QRegularExpression>
-#include <QDateTime>
 #include <QDebug>
 #include <algorithm>
 #include <cmath>
@@ -350,5 +349,6 @@ void WordCloudGenerator::drawStar(QPainter *p, const QSize &size) {  // звез
     
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_STAR, 18);
 }
+
 
 
