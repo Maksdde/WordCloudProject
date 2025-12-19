@@ -51,7 +51,7 @@ void WordCloudGenerator::draw(QPainter *p, const QSize &size) {
 }
 
 QColor WordCloudGenerator::getRandomColor() { 
-    int i = rand() % (COLORS.size() - 1);
+    int i = rand() % COLORS.size();
     return COLORS[i];
 }
 
@@ -350,6 +350,7 @@ void WordCloudGenerator::drawStar(QPainter *p, const QSize &size) {
     
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_STAR, 18);
 }
+
 
 
 
