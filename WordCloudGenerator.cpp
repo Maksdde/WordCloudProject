@@ -10,17 +10,17 @@
 #include <QRandomGenerator>
 #include <vector>
 
-const std::vector<QColor> WordCloudGenerator::COLORS = {  // цвета
-    QColor(231, 76, 60),    // красный
-    QColor(46, 204, 113),   // зеленый
-    QColor(52, 152, 219),   // синий
-    QColor(155, 89, 182),   // фиолетовый
-    QColor(241, 196, 15),   // жёлтый
-    QColor(230, 126, 34),   // оранжевый
-    QColor(22, 160, 133)    // бирюзовый
+const std::vector<QColor> WordCloudGenerator::COLORS = {
+    QColor(231, 76, 60),   
+    QColor(46, 204, 113),   
+    QColor(52, 152, 219),   
+    QColor(155, 89, 182),   
+    QColor(241, 196, 15),  
+    QColor(230, 126, 34),  
+    QColor(22, 160, 133)   
 };
 
-void WordCloudGenerator::processText(const QString &text) {  // считывание и уборка шума в тексте
+void WordCloudGenerator::processText(const QString &text) { 
     freq.clear();
     
     QStringList words = text.toLower().split(QRegularExpression("[^a-zа-яё0-9]+"), Qt::SkipEmptyParts);
@@ -31,7 +31,7 @@ void WordCloudGenerator::processText(const QString &text) {  // считыван
     }
 }
 
-void WordCloudGenerator::draw(QPainter *p, const QSize &size) {  // выбор фигуры
+void WordCloudGenerator::draw(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
     if (drawing_shape == "circle") {
         drawCircle(p, size);
@@ -46,16 +46,16 @@ void WordCloudGenerator::draw(QPainter *p, const QSize &size) {  // выбор �
     } else if (drawing_shape == "star") {
         drawStar(p, size);
     } else {
-        drawSpiral(p, size);  // по умолчанию спираль
+        drawSpiral(p, size);  
     }
 }
 
-QColor WordCloudGenerator::getRandomColor() {  // выбор случайного цвета
+QColor WordCloudGenerator::getRandomColor() { 
     int i = 0 + rand() % (COLORS.size() - 1);
     return COLORS[i];
 }
 
-void WordCloudGenerator::drawBasic(QPainter *p, const QSize &size, // общий метод рисования
+void WordCloudGenerator::drawBasic(QPainter *p, const QSize &size, 
                                     const std::vector<QPoint> &positions,
                                     const QString &fontName,
                                     int baseFontSize,
@@ -97,7 +97,7 @@ void WordCloudGenerator::drawBasic(QPainter *p, const QSize &size, // общий
     }
 }
 
-void WordCloudGenerator::drawSpiral(QPainter *p, const QSize &size) {  // спираль
+void WordCloudGenerator::drawSpiral(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
     
     int maxWords = std::min(static_cast<int>(freq.size()), MAX_WORDS_SPIRAL);
@@ -119,7 +119,7 @@ void WordCloudGenerator::drawSpiral(QPainter *p, const QSize &size) {  // спи
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_SPIRAL, 16);
 }
 
-void WordCloudGenerator::drawCircle(QPainter *p, const QSize &size) {  // круг
+void WordCloudGenerator::drawCircle(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
     
     int maxWords = std::min(static_cast<int>(freq.size()), MAX_WORDS_CIRCLE);
@@ -139,7 +139,7 @@ void WordCloudGenerator::drawCircle(QPainter *p, const QSize &size) {  // кру
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_CIRCLE, 18);
 }
 
-void WordCloudGenerator::drawSquare(QPainter *p, const QSize &size) {  // квадрат
+void WordCloudGenerator::drawSquare(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
     
     int maxWords = std::min(static_cast<int>(freq.size()), MAX_WORDS_SQUARE);
@@ -178,7 +178,7 @@ void WordCloudGenerator::drawSquare(QPainter *p, const QSize &size) {  // ква
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_SQUARE, 20);
 }
 
-void WordCloudGenerator::drawTriangle(QPainter *p, const QSize &size) {  // треугольник
+void WordCloudGenerator::drawTriangle(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
 
     int maxWords = std::min(static_cast<int>(freq.size()), MAX_WORDS_TRIANGLE);
@@ -227,7 +227,7 @@ void WordCloudGenerator::drawTriangle(QPainter *p, const QSize &size) {  // тр
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_TRIANGLE, 20);
 }
 
-void WordCloudGenerator::drawHeart(QPainter *p, const QSize &size) {  // сердце
+void WordCloudGenerator::drawHeart(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
 
     int maxWords = std::min(static_cast<int>(freq.size()), MAX_WORDS_HEART);
@@ -290,7 +290,7 @@ void WordCloudGenerator::drawHeart(QPainter *p, const QSize &size) {  // сер�
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_HEART, 18);
 }
 
-void WordCloudGenerator::drawStar(QPainter *p, const QSize &size) {  // звезда
+void WordCloudGenerator::drawStar(QPainter *p, const QSize &size) {
     if (freq.empty()) return;
     
     int maxWords = std::min(static_cast<int>(freq.size()), MAX_WORDS_STAR);
@@ -350,6 +350,7 @@ void WordCloudGenerator::drawStar(QPainter *p, const QSize &size) {  // звез
     
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_STAR, 18);
 }
+
 
 
 
