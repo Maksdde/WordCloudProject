@@ -234,7 +234,7 @@ void WordCloudGenerator::drawHeart(QPainter *p, const QSize &size) {
     
     std::vector<QPoint> positions;
     int centerX = size.width() / 2;
-    int centerY = size.height() / 2
+    int centerY = size.height() / 2;
     int heartSize = std::min(size.width(), size.height()) / 3;
     
     std::vector<QPoint> heartPoints;
@@ -350,6 +350,7 @@ void WordCloudGenerator::drawStar(QPainter *p, const QSize &size) {
     
     drawBasic(p, size, positions, "Arial", BASE_FONT_SIZE_STAR, 18);
 }
+
 
 
 
