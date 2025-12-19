@@ -7,7 +7,7 @@
 #include <QStringList>
 #include "WordCloudGenerator.h"
 
-bool isValidShape(const QString &shape) {  // проверка форм
+bool isValidShape(const QString &shape) {
     static const QStringList validShapes = {"spiral", "circle", "square", "triangle", "heart", "star"};
    return validShapes.contains(shape.toLower());
 }
@@ -23,9 +23,9 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addVersionOption();
     
-    parser.addPositionalArgument("input", "Input text file");  // необходимое название текстового файла
+    parser.addPositionalArgument("input", "Input text file");
     
-    parser.addOption(QCommandLineOption({"o", "output"},  // опциональные аргументы
+    parser.addOption(QCommandLineOption({"o", "output"},
         "Output .jpg file", "file", "output.jpg"));
     
     parser.addOption(QCommandLineOption({"s", "shape"}, 
@@ -42,14 +42,14 @@ int main(int argc, char *argv[]) {
     
     const QStringList args = parser.positionalArguments();
 
-    if (args.isEmpty()) {  // есть аргумент-файл?
+    if (args.isEmpty()) {
         qCritical() << "Error: no text file";
         return 1;
     }
     
     QString inputFile = args.at(0);
 
-    if (!inputFile.endsWith(".txt", Qt::CaseInsensitive)) {  // файл подан в расширении .txt?
+    if (!inputFile.endsWith(".txt", Qt::CaseInsensitive)) {
         qCritical() << "Error: Input file must have .txt extension";
         qCritical() << "Got:" << inputFile;
         return 1;
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
     QString outputFile = parser.value("output");
     QString shapeStr = parser.value("shape");
     
-    if (!isValidShape(shapeStr)) { // форма та?
+    if (!isValidShape(shapeStr)) {
         qCritical() << "Error: Unknown shape:" << shapeStr;
         qCritical() << "Available shapes: spiral, circle, square, triangle, heart, star";
         return 1;
@@ -67,14 +67,14 @@ int main(int argc, char *argv[]) {
     int width = parser.value("width").toInt();
     int height = parser.value("height").toInt();
     
-    if (width < 100 || height < 100) {  // корректен размер изображения?
+    if (width < 100 || height < 100) {
         qCritical() << "Error: Minimum image size is 100 by 100 pixels";
         return 1;
     }
     
     QFile file(inputFile);
 
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {  // можно ли прочесть файл?
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qCritical() << "Error: Can`t open file" << inputFile;
         return 1;
     }
@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
     QString text = QString::fromUtf8(file.readAll());
     file.close();
     
-    if (text.isEmpty()) {  // файл не пустой?
+    if (text.isEmpty()) {
         qCritical() << "Error: File is empty";
         return 1;
     }
@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
     
     QString outputFileLower = outputFile.toLower();
     
-    if (!outputFileLower.endsWith(".jpg") && !outputFileLower.endsWith(".jpeg")) {  // проверка названия и типа файла изображения
+    if (!outputFileLower.endsWith(".jpg") && !outputFileLower.endsWith(".jpeg")) {
         if (!outputFile.contains('.')) {
             outputFile += ".jpg";
         } else {
@@ -112,7 +112,7 @@ int main(int argc, char *argv[]) {
         qInfo() << "File`s extension was changed to .jpg:" << outputFile;
     }
     
-    if (!image.save(outputFile, "JPG", 100)) {  // сохранился ли файл?
+    if (!image.save(outputFile, "JPG", 100)) {
         qCritical() << "Error: Can`t save an image" << outputFile;
         return 1;
     }
@@ -120,3 +120,4 @@ int main(int argc, char *argv[]) {
     return 0;
 
 }
+
